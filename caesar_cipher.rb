@@ -39,7 +39,9 @@ def caesar_cipher(message, shift_factor = 0)
 
   splited_dec_cipher = splited_dec_message.map { |code| dec_mess_to_cipher(code, shift_factor) }
 
-  puts splited_dec_cipher.map(&:chr).join
+  cipher = splited_dec_cipher.map(&:chr).join
+
+  puts cipher
 end
 
 puts 'Bmfy f xywnsl!'
