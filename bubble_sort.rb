@@ -12,14 +12,8 @@ def bubble_sort(array)
   end
 end
 
-def sort_two_elements(array, index_to_check)
-  first = array[index_to_check]
-  second = array[index_to_check + 1]
-
-  if first > second
-    array[index_to_check] = second
-    array[index_to_check + 1] = first
-  end
+def sort_two_elements(array, first_e)
+  array[first_e], array[first_e + 1] = array[first_e + 1], array[first_e] if array[first_e] > array[first_e + 1]
   array
 end
 
