@@ -16,30 +16,30 @@ def alphabetic_wrap(char_decimal_shifted, case_constant)
 end
 
 def dec_mess_to_cipher(chr_code, shift_factor)
-  cript_chr_code = chr_code + shift_factor
+  cipher_chr_code = chr_code + shift_factor
 
   case chr_code
   when RANGE_UPPERCASE_LETTERS
-    upcase_rebase(cript_chr_code)
+    upcase_rebase(cipher_chr_code)
   when RANGE_LOWERCASE_LETTERS
-    lowcase_rebase(cript_chr_code)
+    lowcase_rebase(cipher_chr_code)
   else
     chr_code
   end
 end
 
-def upcase_rebase(cript_chr_code)
-  alphabetic_wrap(cript_chr_code, UPPERCASE_FIRST_LETTER)
+def upcase_rebase(cipher_chr_code)
+  alphabetic_wrap(cipher_chr_code, UPPERCASE_FIRST_LETTER)
 end
 
-def lowcase_rebase(cript_chr_code)
-  alphabetic_wrap(cript_chr_code, LOWERCASE_FIRST_LETTER)
+def lowcase_rebase(cipher_chr_code)
+  alphabetic_wrap(cipher_chr_code, LOWERCASE_FIRST_LETTER)
 end
 
 def caesar_cipher(message, shift_factor = 0)
-  splited_dec_message = message.codepoints
+  splitted_dec_message = message.codepoints
 
-  splited_dec_cipher = splited_dec_message.map { |code| dec_mess_to_cipher(code, shift_factor) }
+  splitred_dec_cipher = splitted_dec_message.map { |code| dec_mess_to_cipher(code, shift_factor) }
 
   cipher = splited_dec_cipher.map(&:chr).join
 
