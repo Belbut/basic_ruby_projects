@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 def bubble_sort(array)
   new_array = array.clone
   (array.size - 1).times do |i|
     new_array = sort_two_elements(new_array, i)
   end
 
-  # print "step:"; p new_array; #uncoment this if you want to check the intermedit steps
-  if array != new_array
-    bubble_sort(new_array)
-  else
+  # print "step:"; p new_array; #uncomment this if you want to check the intermediate steps
+  if array == new_array
     new_array
+  else
+    bubble_sort(new_array)
   end
 end
 

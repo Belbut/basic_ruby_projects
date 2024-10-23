@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 def stock_picker(stock_quotes)
-  possible_results = stock_quotes.each_with_index.each_with_object({}) do |(buy_price, buy_day), acumulator|
+  possible_results = stock_quotes.each_with_index.with_object({}) do |(buy_price, buy_day), accumulator|
     stock_quotes[buy_day..].each_with_index do |sell_price, sell_day|
       profit = sell_price - buy_price
       break if profit.negative?
 
-      acumulator[profit] = [buy_day, buy_day + sell_day] if acumulator[profit].nil?
+      accumulator[profit] = [buy_day, buy_day + sell_day] if accumulator[profit].nil?
     end
   end
   max_profit = possible_results.keys.max
