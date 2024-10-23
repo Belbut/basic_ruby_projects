@@ -41,13 +41,13 @@ class CaesarCipher
     end
   end
 
-  def self.alphabetic_wrap(char_dec_shifted, first_letter_up_low_case_code)
+  def self.alphabetic_wrap(input_number, wrap_on_number)
     # rebases upcase and lowcase to the same axis of alphabet eg a/A = 0 b/B=1
-    char_dec_shifted -= first_letter_up_low_case_code
+    input_number -= wrap_on_number
     # removes the number of wraps because of the shift
-    alphabet_letter_dec_code = char_dec_shifted % NUMBER_OF_LETTERS_IN_ALPHABET
+    alphabet_letter_dec_code = input_number % NUMBER_OF_LETTERS_IN_ALPHABET
     # returns the chars to the same up/low case axis
-    alphabet_letter_dec_code + first_letter_up_low_case_code
+    alphabet_letter_dec_code + wrap_on_number
   end
 end
 # puts 'Bmfy f xywnsl!'
